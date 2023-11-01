@@ -9,5 +9,16 @@ for i in df["name"]:
         list.append(i)
 
 
-def concat_str(str1,str2):
-    return str1+' '+str2
+def clean_text(text):
+    # Remove punctuation
+    text = ''.join([char for char in text if char.isalnum() or char.isspace()])
+    # Convert to lowercase
+    text = text.lower()
+    # Tokenize into words
+    words = text.split()
+    return words
+
+# Sample text
+sample_text = "This is an example text, with some punctuation marks and UPPERCASE words!"
+cleaned_words = clean_text(sample_text)
+print(cleaned_words)
